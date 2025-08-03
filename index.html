@@ -65,6 +65,16 @@ h1, h2, h3, h4 {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Highlighted card for certifications/awards */
+.highlighted-card {
+    border: 2px solid #FF9800; /* brand-accent */
+    box-shadow: 0 0 0 4px rgba(255, 152, 0, 0.1), 0px 10px 30px rgba(0, 0, 0, 0.1); /* brand-accent-light */
+}
+.highlighted-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 15px 40px rgba(255, 152, 0, 0.2), 0 0 0 4px rgba(255, 152, 0, 0.1); /* brand-accent-light */
+}
+
 /* Responsive adjustments for header */
 @media (max-width: 768px) {
     .header-content {
@@ -91,16 +101,16 @@ h1, h2, h3, h4 {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Pranam Chillakuru - Aspiring Data Engineer & Scientist</title>
-    
+    <title>Sai Pranam Chillakuru - Data Engineer & Scientist</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -116,6 +126,8 @@ h1, h2, h3, h4 {
                         'brand-primary-light': 'rgba(0, 87, 255, 0.1)',
                         'brand-secondary': '#6b7280',
                         'brand-border': '#e5e5e5',
+                        'brand-accent': '#FF9800', // Orange for awards/certs
+                        'brand-accent-light': 'rgba(255, 152, 0, 0.1)'
                     },
                     fontFamily: {
                         'heading': ['Manrope', 'sans-serif'],
@@ -123,6 +135,7 @@ h1, h2, h3, h4 {
                     },
                     boxShadow: {
                         'card': '0px 4px 20px rgba(0, 0, 0, 0.05)',
+                        'highlight': '0px 8px 25px rgba(0, 87, 255, 0.2)' // For highlighting
                     }
                 }
             }
@@ -180,6 +193,16 @@ h1, h2, h3, h4 {
             transform: translateY(-5px);
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
         }
+
+        /* Highlighted card for certifications/awards */
+        .highlighted-card {
+            border: 2px solid var(--brand-accent);
+            box-shadow: 0 0 0 4px var(--brand-accent-light), 0px 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .highlighted-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 15px 40px rgba(255, 152, 0, 0.2), 0 0 0 4px var(--brand-accent-light);
+        }
     </style>
 
 <!-- RESUME2SITE_NAV_PROTECTION_START -->
@@ -187,7 +210,7 @@ h1, h2, h3, h4 {
 // ResumeToSite Navigation Protection Script - IFRAME ONLY
 (function() {
     'use strict';
-    
+
     // Only prevent navigation if we're in an iframe
     if (window.parent !== window) {
         // Prevent external navigation attempts in iframe
@@ -199,14 +222,47 @@ h1, h2, h3, h4 {
                 return false;
             }
         }, true);
-        
+
         // Prevent form submissions in iframe
         document.addEventListener('submit', function(e) {
             e.preventDefault();
             e.stopPropagation();
             return false;
         }, true);
-        
+
+        // Override window.open in iframe
+        window.open = function() {
+            return null;
+        };
+    }
+})();
+</script>
+<!-- RESUME2SITE_NAV_PROTECTION_END -->
+<!-- RESUME2SITE_NAV_PROTECTION_START -->
+<script type="text/javascript" data-resume2site-nav-protection="true">
+// ResumeToSite Navigation Protection Script - IFRAME ONLY
+(function() {
+    'use strict';
+
+    // Only prevent navigation if we're in an iframe
+    if (window.parent !== window) {
+        // Prevent external navigation attempts in iframe
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a');
+            if (target && target.href && !target.href.startsWith('#')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, true);
+
+        // Prevent form submissions in iframe
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
+
         // Override window.open in iframe
         window.open = function() {
             return null;
@@ -253,14 +309,14 @@ h1, h2, h3, h4 {
     <!-- Header Section -->
     <header id="header" class="py-8 px-6 md:px-12 lg:px-20 bg-brand-bg border-b border-brand-border">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            
+
             <!-- Profile Info -->
             <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-                <img src='https://raw.githubusercontent.com/raghuveer9303/pranam-portfolio/main/images/1_6bc7f3bcdaaa4d7f9c9f451d90ee1e7c.jpeg' alt='Sai Pranam Chillakuru Professional Headshot' class='w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-card main-headshot animate-on-scroll' />
-                
+                <img src='http://brahma:9500/portfolio-prime/photos/1_6bc7f3bcdaaa4d7f9c9f451d90ee1e7c.jpeg' alt='Sai Pranam Chillakuru Professional Headshot' class='w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-card main-headshot animate-on-scroll' />
+
                 <div class="animate-on-scroll" style="animation-delay: 0.1s;">
                     <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-brand-text leading-tight">Sai Pranam Chillakuru</h1>
-                    <p class="text-xl md:text-2xl font-semibold text-brand-primary mt-2">Aspiring Data Engineer & Scientist</p>
+                    <p class="text-xl md:text-2xl font-semibold text-brand-primary mt-2">Data Engineer & Scientist</p>
                     <p class="text-md md:text-lg font-medium text-brand-secondary mt-1">Specializing in AI & Machine Learning</p>
                 </div>
             </div>
@@ -288,8 +344,8 @@ h1, h2, h3, h4 {
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-8 text-brand-text animate-on-scroll">About Me</h2>
             <div class="max-w-3xl mx-auto text-lg font-medium text-brand-secondary leading-relaxed text-center animate-on-scroll" style="animation-delay: 0.1s;">
-                <p>AWS Certified and IBM Certified learner, I am an aspiring Data Engineer and Data Scientist with a specialization in Artificial Intelligence and Machine Learning. Possessing a strong foundation in Electronics and Communication Engineering, I am currently pursuing a Master’s in Applied Data Science.</p>
-                <p class="mt-4">I have hands-on experience with Python, PySpark, Big Data, and various machine learning algorithms. My proven track record includes developing data-driven solutions such as personalized learning paths and implementing fraud detection for e-commerce security enhancements.</p>
+                <p>AWS Certified and IBM Certified professional, I am a Data Engineer and Data Scientist specializing in Artificial Intelligence and Machine Learning. With a strong foundation in Electronics and Communication Engineering, I am pursuing a Master’s in Applied Data Science with a focus on building scalable, data-driven solutions.</p>
+                <p class="mt-4">My expertise spans Python, PySpark, Big Data technologies, and a wide range of machine learning algorithms. I have a proven track record of developing impactful data solutions, including personalized learning paths and advanced fraud detection systems for e-commerce security, all designed to drive efficiency and innovation.</p>
             </div>
         </div>
     </section>
@@ -298,9 +354,9 @@ h1, h2, h3, h4 {
     <section id="experience" class="py-16 px-6 md:px-12 lg:px-20 bg-white">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-text animate-on-scroll">Professional Experience</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
+
                 <!-- PHN Technology -->
                 <div class="bg-white rounded-lg shadow-card p-6 card-hover-effect animate-on-scroll" style="animation-delay: 0.1s;">
                     <h3 class="text-2xl font-heading font-bold text-brand-primary mb-2">PHN Technology</h3>
@@ -340,9 +396,9 @@ h1, h2, h3, h4 {
     <section id="projects" class="py-16 px-6 md:px-12 lg:px-20 bg-brand-bg">
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-text animate-on-scroll">Projects</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
+
                 <!-- Career Path Project -->
                 <div class="bg-white rounded-lg shadow-card p-6 card-hover-effect animate-on-scroll" style="animation-delay: 0.1s;">
                     <h3 class="text-2xl font-heading font-bold text-brand-primary mb-2">Career Path - Personalized Learning Navigator</h3>
@@ -370,58 +426,73 @@ h1, h2, h3, h4 {
     <section id="skills-education" class="py-16 px-6 md:px-12 lg:px-20 bg-white">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
+
                 <!-- Skills Column -->
                 <div class="animate-on-scroll" style="animation-delay: 0.1s;">
                     <h2 class="text-3xl font-heading font-bold text-brand-text mb-8">Skills</h2>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <h4 class="text-lg font-semibold text-brand-primary mb-2">Programming Languages</h4>
                             <ul class="text-brand-secondary font-medium text-sm space-y-1">
                                 <li>Python</li>
                                 <li>SQL</li>
                                 <li>R</li>
-                                <li>C</li>
+                                <li>Java (Basic)</li>
+                                <li>Scala (Basic)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-brand-primary mb-2">Data Engineering & Big Data</h4>
+                            <ul class="text-brand-secondary font-medium text-sm space-y-1">
+                                <li>PySpark</li>
+                                <li>Apache Hadoop</li>
+                                <li>SQL Databases (PostgreSQL, MySQL)</li>
+                                <li>NoSQL Databases (MongoDB)</li>
+                                <li>ETL Processes</li>
+                                <li>Data Warehousing Concepts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-brand-primary mb-2">Machine Learning & AI</h4>
+                            <ul class="text-brand-secondary font-medium text-sm space-y-1">
+                                <li>Scikit-learn</li>
+                                <li>TensorFlow</li>
+                                <li>Keras</li>
+                                <li>Pandas</li>
+                                <li>NumPy</li>
+                                <li>Model Deployment Concepts</li>
                             </ul>
                         </div>
                         <div>
                             <h4 class="text-lg font-semibold text-brand-primary mb-2">Tools & Platforms</h4>
                             <ul class="text-brand-secondary font-medium text-sm space-y-1">
                                 <li>Git</li>
-                                <li>Visual Studio</li>
-                                <li>Kaggle</li>
-                                <li>Microsoft Apps</li>
-                                <li>PySpark</li>
-                                <li>Hadoop</li>
+                                <li>Docker (Basic)</li>
+                                <li>AWS (S3, EC2, EMR, Glue - Certified)</li>
+                                <li>Azure (Basic exposure)</li>
+                                <li>Jupyter Notebooks</li>
+                                <li>VS Code</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="text-lg font-semibold text-brand-primary mb-2">Interests</h4>
-                        <ul class="text-brand-secondary font-medium text-sm space-y-1">
-                            <li>Exploring</li>
-                            <li>Chess</li>
-                            <li>Badminton</li>
-                        </ul>
                     </div>
                 </div>
 
                 <!-- Education Column -->
                 <div class="animate-on-scroll" style="animation-delay: 0.2s;">
                     <h2 class="text-3xl font-heading font-bold text-brand-text mb-8">Education</h2>
-                    
+
                     <div class="mb-6 pb-6 border-b border-brand-border">
                         <h3 class="text-xl font-heading font-bold text-brand-text">Indiana University</h3>
                         <p class="text-lg font-semibold text-brand-primary">Master of Science, Applied Data Science</p>
-                        <p class="text-sm font-medium text-brand-secondary">Indianapolis, U.S. | Fall 2024</p>
-                        <p class="text-sm font-medium text-brand-secondary mt-1">Relevant Coursework: Data Science Programming in Python, Statistics for Data Science in R</p>
+                        <p class="text-sm font-medium text-brand-secondary">Indianapolis, U.S. | Expected Graduation: Fall 2024</p>
+                        <p class="text-sm font-medium text-brand-secondary mt-1">Relevant Coursework: Advanced Machine Learning, Big Data Analytics, Data Visualization, Cloud Computing.</p>
                     </div>
-                    
+
                     <div>
                         <h3 class="text-xl font-heading font-bold text-brand-text">Gitam School of Technology</h3>
                         <p class="text-lg font-semibold text-brand-primary">Bachelor of Engineering, Electronics and Computer Engineering</p>
                         <p class="text-sm font-medium text-brand-secondary">Bangalore, India | 2020 – 2024</p>
-                        <p class="text-sm font-medium text-brand-secondary mt-1">Specialization in Artificial Intelligence and Machine Learning</p>
+                        <p class="text-sm font-medium text-brand-secondary mt-1">Specialization: Artificial Intelligence and Machine Learning.</p>
                     </div>
                 </div>
             </div>
@@ -431,29 +502,50 @@ h1, h2, h3, h4 {
     <!-- Certifications & Awards Section -->
     <section id="certifications-awards" class="py-16 px-6 md:px-12 lg:px-20 bg-brand-bg">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-brand-text animate-on-scroll">Certifications & Accolades</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
                 <!-- Certifications Column -->
-                <div class="animate-on-scroll" style="animation-delay: 0.1s;">
-                    <h2 class="text-3xl font-heading font-bold text-brand-text mb-8">Certifications</h2>
+                <div class="animate-on-scroll highlighted-card p-6 rounded-lg bg-white" style="animation-delay: 0.1s;">
+                    <h3 class="text-2xl font-heading font-bold text-brand-accent mb-4">Professional Certifications</h3>
                     <ul class="text-brand-secondary font-medium text-sm space-y-2">
-                        <li>AWS Academy Data Engineering</li>
-                        <li>AWS Academy Machine Learning</li>
-                        <li>IBM Project Management Fundamentals</li>
-                        <li>CISCO Academy Intro to Cybersecurity</li>
-                        <li>IBM Machine Learning</li>
-                        <li>IBM Deep Learning and Reinforcement Learning</li>
-                        <li>Object Oriented Programming Concepts</li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> AWS Certified Data Engineering Specialist
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> AWS Certified Machine Learning
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> IBM Project Management Fundamentals
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> IBM Machine Learning
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> IBM Deep Learning and Reinforcement Learning
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> CISCO Academy Intro to Cybersecurity
+                        </li>
+                         <li class="flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> Object Oriented Programming Concepts
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Awards Column -->
-                <div class="animate-on-scroll" style="animation-delay: 0.2s;">
-                    <h2 class="text-3xl font-heading font-bold text-brand-text mb-8">Awards</h2>
+                <div class="animate-on-scroll highlighted-card p-6 rounded-lg bg-white" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-heading font-bold text-brand-accent mb-4">Academic & Professional Awards</h3>
                     <ul class="text-brand-secondary font-medium text-sm space-y-2">
-                        <li>Prathibha Award – From Government of India for excellence in Secondary Education.</li>
-                        <li>Best Student Award - From Gitam University for Conducting Workshops and Co-ordinating Students.</li>
-                        <li>Shore Prize - For Best Mural Art at the Government School Competition.</li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="trophy" class="w-4 h-4 text-brand-accent"></i> Prathibha Award – Government of India for excellence in Secondary Education.
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="trophy" class="w-4 h-4 text-brand-accent"></i> Best Student Award - Gitam University for leadership in workshops and student coordination.
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="trophy" class="w-4 h-4 text-brand-accent"></i> Shore Prize - For Best Mural Art at Government School Competition.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -520,31 +612,62 @@ h1, h2, h3, h4 {
         
         // Original JavaScript code
         safeExecute(function() {
-            // Initialize Lucide Icons
-lucide.createIcons();
+            // Enhanced JavaScript with error handling and dependency checks
+(function() {
+    'use strict';
 
-// Intersection Observer for scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // Check if the element is visible in the viewport
-            if (entry.isIntersecting) {
-                // Add the 'visible' class to trigger the animation
-                entry.target.classList.add('visible');
-                // Optionally, unobserve the element if you only want the animation once
-                // observer.unobserve(entry.target);
-            }
+    // Utility function to safely execute code
+    function safeExecute(fn, errorMessage) {
+        try {
+            fn();
+        } catch (error) {
+            console.warn(errorMessage + ':', error);
+        }
+    }
+
+    // Ensure Lucide icons are available and initialized
+    function initializeLucideIcons() {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        } else {
+            console.warn('Lucide icons not available or createIcons function missing.');
+        }
+    }
+
+    // Initialize when DOM is ready
+    function initializePortfolio() {
+        // Initialize Lucide icons first
+        safeExecute(initializeLucideIcons, 'Lucide icon initialization failed');
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Check if the element is visible in the viewport
+                if (entry.isIntersecting) {
+                    // Add the 'visible' class to trigger the animation
+                    entry.target.classList.add('visible');
+                    // Optionally, unobserve the element if you only want the animation once
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Adjust threshold as needed; 0.1 means 10% of the element needs to be visible
         });
-    }, {
-        threshold: 0.1 // Adjust threshold as needed; 0.1 means 10% of the element needs to be visible
-    });
 
-    // Select all elements that should animate on scroll
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    // Observe each animated element
-    animatedElements.forEach(el => observer.observe(el));
-});
+        // Select all elements that should animate on scroll
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+        // Observe each animated element
+        animatedElements.forEach(el => observer.observe(el));
+    }
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializePortfolio);
+    } else {
+        initializePortfolio();
+    }
+})();
         }, 'Portfolio initialization failed');
     }
     
